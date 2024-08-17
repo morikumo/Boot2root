@@ -1,7 +1,48 @@
 
 ---
+# Identification de l'adresse IP d'une VM VirtualBox
 
-### Identification de l'adresse IP
+Ce guide explique comment trouver l'adresse IP d'une machine virtuelle (VM) VirtualBox sans y accéder directement.
+
+## Prérequis
+
+- VirtualBox installé
+- Une VM configurée
+- nmap installé sur l'hôte
+
+## Méthode 1:
+
+### Étapes
+
+1. Créer un réseau Host-Only
+   - Ouvrez VirtualBox
+   - Allez dans Fichier > Outils > Network Manager
+   - Créez un nouveau Host-Only Network
+   - Activez le serveur DHCP
+
+2. Configurer la VM
+   - Sélectionnez la VM
+   - Allez dans Configuration > Network
+   - Choisissez "Private host network"
+   - Sélectionnez le réseau Host-Only créé
+
+3. Lancer la VM
+
+4. Identifier la plage IP
+   - Retournez dans Network Manager
+   - Notez la plage IP du réseau Host-Only
+
+5. Scanner avec nmap
+   - Ouvrez un terminal
+   - Exécutez : `nmap  <plage_ip>`
+   - Exemple : `nmap 192.168.56.0/24`
+
+6. Identifier l'IP de la VM dans les résultats du scan
+
+Cette méthode permet de trouver l'IP de la VM sans y accéder directement, en utilisant un réseau privé et un scan réseau.
+
+## Méthode 2:
+
 
 Après avoir configuré la connexion réseau de la VM en mode pont, nous avons utilisé la commande `ip a` pour récupérer notre adresse IP locale, qui est `192.168.108.190/25`.
 
