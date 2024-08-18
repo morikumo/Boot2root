@@ -202,9 +202,7 @@ Nous allons maintenant construire un payload pour exploiter cette vulnérabilit�
    - Le tampon `buffer` a une taille de 140 octets. En remplissant 119 octets avec "A" (`0x41` en hexadécimal), nous laissons 21 octets pour le shellcode et l'adresse de retour.
    
 2. **Shellcode** :
-   - Exemple de shellcode : `"\x6a\x0b\x58
-
-\x99\x52\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x31\xc9\xcd\x80"`
+   - Exemple de shellcode : `"\x6a\x0b\x58\x99\x52\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x31\xc9\xcd\x80"`
    - Ce shellcode exécute `/bin/sh` en utilisant une série d'instructions d'assemblage.
 
 3. **Adresse de retour** :
